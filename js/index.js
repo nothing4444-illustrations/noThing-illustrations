@@ -51,3 +51,4 @@ const logWindowWidth = () => {
 
 logWindowWidth();
 window.addEventListener('resize', logWindowWidth);
+

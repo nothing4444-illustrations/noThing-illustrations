@@ -222,3 +222,4 @@ if (parallaxLayers.length > 0) {
   updateLayerPositions();
   startDrift();
 }
+

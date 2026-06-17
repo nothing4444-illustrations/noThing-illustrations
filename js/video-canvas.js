@@ -95,3 +95,4 @@ const setupProjectVideoCanvas = () => {
 };
 
 setupProjectVideoCanvas();
+

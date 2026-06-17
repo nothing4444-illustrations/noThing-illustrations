@@ -1,4 +1,4 @@
-header {
+﻿header {
   z-index: 10;
   top: 0;
   width: 100%;
@@ -94,7 +94,7 @@ header {
   z-index: 1;
 
 }
-.JoãoCoutinho {
+.noThing {
   margin: 20px 0px 0px 0px;
   
 }
@@ -179,3 +179,4 @@ body.is-slide-animating nav .nav-link {
   pointer-events: none;
   cursor: default;
 }
+

@@ -6,11 +6,11 @@ body .content-container {
 
 body .frame-controller-contact {
   position: relative;
-  z-index: 21;
+  z-index: -9999;
   width: 70%;
-  max-width: 100%;
+  max-width: 60vw;
   height: auto;
-  margin: 140px auto 0;
+  margin: 25vh auto 0;
   pointer-events: none; /* disable clicks on contact frame controller */
 }
 
@@ -88,7 +88,7 @@ body .frame-controller-contact {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center -40px;
+  object-position: center center;
   
   display: block;
 }
@@ -327,3 +327,4 @@ body .frame-controller-contact {
   
   color: #8D8D8D;
 }
+

@@ -131,3 +131,4 @@ window.PortfolioScrollUI = {
   updateCustomScrollbar,
   requestCustomScrollbarUpdate,
 };
+

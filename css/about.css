@@ -10,7 +10,7 @@ body .frame-controller-about {
   width: 70%;
   max-width: 100%;
   height: auto;
-  margin: 140px auto 0;
+  margin: 20vh auto 0;
   pointer-events: none; /* disable clicks on about frame controller */
 }
 
@@ -23,6 +23,10 @@ body .frame-controller-about {
     align-self: flex-start !important;
     margin-top: 160px !important;
   }
+}
+
+.frame-controller-about .project-frame-content-text-button p{
+   font-size: clamp(15px, 1.2vw, 20px);
 }
 
 
@@ -92,3 +96,4 @@ body .frame-controller-about {
 .project-frame-header-title-logo {
   gap: 5px;
 }
+

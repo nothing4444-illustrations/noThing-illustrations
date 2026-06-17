@@ -33,6 +33,7 @@
     pointer-events: auto;
   }
 
+  
 
 
   .mobile-nav-toggle span {
@@ -349,49 +350,7 @@
   }
 
 
-  .frame-controller-about {
-    position: relative;
-    top: -20px !important;
-    z-index: -1;
-    display: block; /* ensure normal flow */
-    min-width: 340px; /* allow flex children to shrink */
-  }
 
-
-  .frame-controller-about .project-frame-content {
-    margin: 20px 0 40px; /* spacing below header */
-    width: calc(100% - 40px);
-    flex-direction: column; /* stack vertically */
-
-  
-  }
-  
-
-  .frame-controller-about .project-frame-content-image {
-    align-self: center;
-    flex: 0 0 270px;
-    width: 90% !important;
-    height: 00px !important;
-    max-width: none !important;
-    min-width: 0px;
-    max-height: none;
-    min-height: 0px;
-
-
-  }
-
-  .frame-controller-about .project-frame-content-text-button {
-    flex: 0 0 100% !important;
-    width: 100% !important;
-    max-width: none !important;
-  }
-
-  .frame-controller-about  .project-frame-header-software svg {
-    width: 24px;
-    height: auto;
-    
-  
-  }
 
   .frame-controller-contact {
     min-width: 340px; 
@@ -483,3 +442,55 @@
   }
  }
   
+
+ @media (max-width: 950px) {
+    .frame-controller-about {
+    position: relative;
+    top: -20px !important;
+    z-index: -1;
+    display: block; /* ensure normal flow */
+    min-width: 340px; /* allow flex children to shrink */
+  }
+
+
+  .frame-controller-about .project-frame-content {
+    margin: 20px 0 40px; /* spacing below header */
+    width: calc(100% - 40px);
+    flex-direction: column; /* stack vertically */
+
+  
+  }
+  
+
+  .frame-controller-about .project-frame-content-image {
+    align-self: center;
+    flex: 0 0 270px;
+    width: 90% !important;
+    height: 00px !important;
+    max-width: none !important;
+    min-width: 0px;
+    max-height: none;
+    min-height: 0px;
+
+
+  }
+
+  .frame-controller-about .project-frame-content-text-button {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .frame-controller-about  .project-frame-header-software svg {
+    width: 24px;
+    height: auto;
+    
+  
+  }
+
+  .frame-controller-about .project-frame-content-image img {
+    
+    object-position: center -20px;
+  }
+
+}
