@@ -1,0 +1,329 @@
+body .content-container {
+  position: relative;
+  z-index: 20;
+  pointer-events: none;
+}
+
+body .frame-controller-contact {
+  position: relative;
+  z-index: 21;
+  width: 70%;
+  max-width: 100%;
+  height: auto;
+  margin: 140px auto 0;
+  pointer-events: none; /* disable clicks on contact frame controller */
+}
+
+@media (max-width: 1520px) {
+  body .frame-controller-about {
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    align-self: flex-start !important;
+    margin-top: 160px !important;
+  }
+}
+
+.frame-controller-contact .project-frame {
+  cursor: default;
+  transform: none;
+  transition: none;
+}
+
+.frame-controller-contact .project-frame:hover,
+.frame-controller-contact .project-frame:active {
+  transform: none;
+}
+
+.frame-controller-contact .project-frame:hover::before {
+  animation: none;
+}
+
+.frame-controller-contact .project-frame-link,
+.frame-controller-contact .project-frame,
+.frame-controller-contact .project-frame * {
+  pointer-events: none; /* ensure no clickable interaction inside */
+  cursor: default;
+}
+
+/* Re-enable pointer events and cursor for interactive anchors inside contact frame */
+.frame-controller-contact .project-frame-content-text-button a.interactive-expandable,
+.frame-controller-contact .project-frame-content-text-button a.interactive-expandable * {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+.project-frame-content {
+  margin-top: 24px;
+}
+.frame-controller-contact .project-frame-content{
+  display: flex;
+  flex-direction: row; /* image on the right, text on the left */
+  align-items: stretch; /* stretch both columns to same height */
+  gap: 24px;
+}
+.frame-controller-contact .project-frame-content-image {
+  position: relative;
+  flex: 1 1 0 !important; /* fill remaining flex space */
+  min-width: 0 !important; /* allow the image container to shrink */
+  width: 0 !important; /* let flex determine width from available space */
+  margin: 0;
+  max-width: none !important;
+  align-self: stretch;
+
+}
+
+.frame-controller-contact .project-frame-content-image svg {
+  position: absolute;
+  top: 50%;
+  right: -12px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.frame-controller-contact .project-frame-content-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center -40px;
+  
+  display: block;
+}
+
+
+
+
+.project-frame-header-title-logo {
+  gap: 5px;
+}
+
+.project-frame-content-text-button {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  justify-content: flex-start; /* vertical centering */
+  align-items: flex-start; /* horizontal centering of children */
+  gap: 15px;
+  flex: 1;
+  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  height: 100%; /* match the image height thanks to parent align-items: stretch */
+  box-sizing: border-box;
+  /* outline: 1px solid #ff0000; */
+}
+
+.project-frame-content-text-button a{
+ 
+  
+  position: relative;
+  display: flex; /* logo + text container */
+  flex-direction: row; /* logo first, texts after */
+  align-items: center;
+  gap: 12px;
+  width: 300px;
+  height: 67.19px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  outline: 1px solid #8D8D8D;
+  background: #1f1f1f;
+  text-decoration: none;
+}
+
+.project-frame-content-text-button a .logo{
+  flex: 0 0 auto;
+  width: 56px; /* increased size */
+  height: 56px; /* increased size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Make SVGs inside the logo slightly smaller than container (50px) */
+.project-frame-content-text-button a .logo svg,
+.project-frame-content-text-button a .logo img{
+  width: 40px;
+  height: 40px;
+  max-width: 100%;
+  display: block;
+}
+
+/* Also target SVGs/IMGs placed directly inside the text-button (different markup variants) */
+.project-frame-content-text-button svg,
+.project-frame-content-text-button img{
+  width: 40px !important;
+  height: 40px !important;
+  display: block;
+}
+
+/* Ensure anchors with inline SVG + text use small vertical gap */
+.project-frame-content-text-button a > div{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+}
+
+.project-frame-content-text-button a > div h2,
+.project-frame-content-text-button a > div h3{
+  margin: 0 !important;
+  line-height: 1.05;
+}
+
+.project-frame-content-text-button a > div p{
+  margin: 0 !important;
+  line-height: 1.1;
+}
+
+.project-frame-content-text-button a .text-container{
+  display: flex;
+  flex-direction: column; /* big text above small text */
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px; /* reduced separation */
+  line-height: 1;
+}
+
+.project-frame-content-text-button a .text-container .large{
+  font-weight: 700;
+  margin: 0; /* ensure no extra spacing */
+}
+
+.project-frame-content-text-button a .text-container .small{
+  font-weight: 400;
+  opacity: 0.9;
+  margin: 0; /* remove default margin */
+}
+
+/* Reduce default spacing between headings and paragraphs inside the button */
+.project-frame-content-text-button a .text-container h2,
+.project-frame-content-text-button a .text-container h3,
+.project-frame-content-text-button a .text-container .large{
+  margin: 0; /* remove extra top/bottom margins */
+  line-height: 1.05;
+}
+
+.project-frame-content-text-button a .text-container p,
+.project-frame-content-text-button a .text-container .small{
+  margin: 3px 0 0 0; /* minimal gap under the heading */
+}
+
+/* More specific rules to override other global heading/paragraph styles */
+.project-frame-content-text-button a h2,
+.project-frame-content-text-button a h3{
+  margin: 0 0 3px 0 !important;
+  line-height: 1.05 !important;
+}
+
+/* end of file corrections */
+
+/* Prevent contact frame from changing to hover/active yellow when clicking inner links */
+.frame-controller-contact .project-frame:active::before,
+.frame-controller-contact .project-frame:focus::before {
+  background: rgba(15, 15, 15, 0.42) !important;
+  opacity: 0.9 !important;
+}
+
+/* small centered toast for copy feedback */
+.copy-toast{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(30,30,30,0.92);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+.copy-toast.show{
+  opacity: 1;
+  transform: translate(-50%, -48%);
+}
+
+/* Hover: slight expand and slow color-shift animation for buttons/frames */
+.interactive-expandable{
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease, outline-color 220ms ease;
+  will-change: transform;
+  position: relative;
+}
+
+.interactive-expandable::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 220ms ease;
+  opacity: 0;
+}
+
+/* subtle color gradient animation while hovered */
+@keyframes toneShift {
+  0%{ filter: hue-rotate(0deg) saturate(1); }
+  50%{ filter: hue-rotate(12deg) saturate(1.05); }
+  100%{ filter: hue-rotate(0deg) saturate(1); }
+}
+
+/* Apply to buttons */
+.project-frame-content-text-button a.interactive-expandable{
+  transform-origin: center;
+  z-index: 2; /* keep above pseudo overlay */
+}
+.project-frame-content-text-button a.interactive-expandable::before{
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+.project-frame-content-text-button a.interactive-expandable:hover{
+  transform: scale(1.035);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+.project-frame-content-text-button a.interactive-expandable:hover::before{
+  opacity: 1;
+  animation: projectFrameHoverGlow 2.6s ease-in-out infinite;
+}
+
+/* Apply similar, but slightly stronger effect to frames (non-destructive) */
+.project-frame.interactive-expandable{
+  transform-origin: center;
+}
+.project-frame.interactive-expandable:hover{
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+.project-frame.interactive-expandable:hover::before{
+  opacity: 1;
+  animation: toneShift 3s linear infinite;
+}
+
+/* Ensure children aren't transformed (content stays sharp) */
+.project-frame.interactive-expandable > *,
+.project-frame-content-text-button a.interactive-expandable > *{
+  transform: none;
+}
+
+/* Swap fonts inside the social/contact buttons: h2 uses p font, p uses h2 font */
+.project-frame-content-text-button h2,
+.project-frame-content-text-button a h2{
+  font-family: 'Satoshi', sans-serif !important; /* originally used by p */
+  
+  
+}
+
+.project-frame-content-text-button p,
+.project-frame-content-text-button a p{
+  font-family: 'IBM Plex Mono', monospace !important; /* originally used by h2 */
+  font-weight: 400 !important;
+  font-size: 11px;
+  
+  color: #8D8D8D;
+}

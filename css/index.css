@@ -1,0 +1,175 @@
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+}
+
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  position: relative;
+}
+
+.page-content {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+.custom-scrollbar {
+  position: fixed;
+  right: 8px;
+  top: 124px;
+  width: 6px;
+  height: calc(100vh - 124px);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.custom-scrollbar-thumb {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  border-radius: 999px;
+  background: rgba(141, 141, 141, 0.82);
+  box-shadow: 0 0 10px rgba(141, 141, 141, 0.18);
+  transform: translateY(0);
+  will-change: transform;
+}
+
+.content-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  margin-top: 0;
+  min-height: 100vh;
+  height: auto;
+  padding: 0;
+}
+
+/* Scroll Down */
+
+.scroll-down-stage {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  min-height: calc(100vh - 1px);
+  padding-bottom: 120px;
+  
+}
+
+.scroll-down-animation {
+  position: relative;
+  width: 115px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: scrollDownFloat 1.6s ease-in-out infinite;
+  opacity: 1;
+  transition: opacity 0.35s ease;
+  will-change: opacity;
+}
+
+.scroll-down-animation.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes scrollDownFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.scroll-down-animation-arrow {
+  position: absolute;
+  top: 25px;
+}
+
+.scroll-down-animation-line {
+  bottom: 44px;
+  position: absolute;
+}
+
+.scroll-down-animation-text {
+  bottom: 40px;
+  position: absolute;
+}
+
+.frame-conteiner {
+  position: relative;
+  margin: 40px auto;
+  gap: 30px;
+  
+  width: min(100%, 1480px);
+  max-width: 1480px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  /* background: red; */
+}
+.frame-controller-logos .project-frame-content-image{
+  /* outline: 1px solid rgb(60, 255, 0); */
+  width: 230px;
+}
+.project-frame-content-image-frame {
+  outline: 1px solid #8D8D8D;
+  background: #8D8D8D30;
+  border-radius: 10px;
+  width: 230px;
+  height: 160px;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px #DAB67D50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.project-frame-content-image-frame img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  display: block;
+  outline: 0;
+  margin: 0;
+}

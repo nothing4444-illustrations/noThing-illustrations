@@ -1,0 +1,98 @@
+.parallax-bg {
+  position: fixed;
+  inset: 0;
+  width: 105%;
+  height: 110%;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 56%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+  opacity: 0.92;
+}
+
+img.parallax-layer {
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.parallax-layer.particle-layer {
+  width: 100vw;
+  height: 100vh;
+}
+
+.parallax-layer.particle-layer .particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.95);
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  filter: blur(0.2px);
+  /* default amplitude if JS doesn't set it */
+  --amp: -12px;
+  animation-name: particleFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes particleFloat {
+  0% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(var(--amp)); }
+  100% { transform: translate(-50%, -50%) translateY(0); }
+}
+
+.layer4 {
+  filter: blur(0.05rem);
+}
+
+.layer3 {
+  filter: blur(0.03rem);
+}
+
+.layer5 {
+  opacity: 0.45;
+  background: transparent;
+  z-index: 0;
+  animation: dustFloat 18s linear infinite;
+  mix-blend-mode: screen;
+}
+
+.layer6 {
+  opacity: 0.28;
+  background: transparent;
+  z-index: -1;
+  animation: dustFloatAlt 24s linear infinite;
+  mix-blend-mode: screen;
+}
+
+@keyframes dustFloat {
+  0% { background-position: 0 0; }
+  50% { background-position: 120px 120px; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes dustFloatAlt {
+  0% { background-position: 0 0; }
+  50% { background-position: -90px 90px; }
+  100% { background-position: 0 0; }
+}
+
+.layer1,
+.layer2 {
+  filter: blur(0);
+}

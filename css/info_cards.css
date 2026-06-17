@@ -1,0 +1,563 @@
+.frame-controller-illustrations,
+.frame-controller-about,
+.frame-controller-logos,
+.frame-controller-image-editing,
+.frame-controller-3d-modeling {
+  position: relative;
+  height: fit-content;
+  flex: 0 1 auto;
+}
+
+.frame-controller-illustrations,
+.frame-controller-about{
+  width: 1000px;
+}
+
+.frame-controller-illustrations .project-frame-content,
+.frame-controller-about .project-frame-content{
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.frame-controller-illustrations .project-frame-content{
+  /* make illustrations frame taller */
+  min-height: 200px;
+  gap: 40px; /* spacing between image and text to respect margins */
+}
+
+.frame-controller-illustrations .project-frame-content-image{
+  flex: 0 0 68%;
+  min-width: 0;
+  max-width: calc(68% - 20px); /* account for gap to avoid overflow */
+  display: flex;
+  align-items: stretch;
+  min-height: 200px;
+}
+.frame-controller-about .project-frame-content-image{
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: none;
+  display: flex;
+  align-items: stretch;
+  min-height: 240px;
+}
+
+.frame-controller-illustrations .project-frame-content-image img,
+.frame-controller-about .project-frame-content-image img{
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.frame-controller-illustrations .project-frame-content-text-button{
+  flex: 0 0 32%;
+  min-width: 0;
+  max-width: calc(32% - 20px); /* account for gap */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: stretch;
+  gap: 24px;
+}
+.frame-controller-about .project-frame-content-text-button{
+  flex: 1 1 260px;
+  min-width: 240px;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: stretch;
+  gap: 24px;
+}
+
+.frame-controller-logos{
+  width: 355px;
+}
+
+/* Uniformly scale the logos controller and its descendants to 60% visually.
+   Uses transform (visual scaling) with a zoom fallback to preserve layout in some browsers. */
+
+
+.frame-controller-image-editing{
+  width: 676px;
+  margin-top: 128px;
+}
+
+.frame-controller-3d-modeling{
+  width: 676px;
+  align-self: flex-end;
+}
+
+@media (max-width: 1520px) {
+  .frame-controller-illustrations,
+  .frame-controller-about,
+  .frame-controller-logos,
+  .frame-controller-image-editing,
+  .frame-controller-3d-modeling {
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    align-self: auto !important;
+    margin-top: 0 !important;
+  }
+}
+
+
+.project-frame {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  background-color: rgba(15, 15, 15, 0.75);
+  outline: 2px solid #8D8D8D;
+  isolation: isolate;
+  transform-origin: center center;
+  transition: transform 0.25s ease, outline-color 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.project-frame > * {
+  position: relative;
+  z-index: 1;
+}
+
+.project-frame-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-frame-link:visited {
+  color: inherit;
+}
+
+.project-frame:hover {
+  transform: scale(1.05);
+  z-index: 5;
+}
+
+.project-frame:active {
+  transform: scale(1.02);
+}
+
+.frame-controller-illustrations .project-frame,
+.frame-controller-about .project-frame{
+  padding-bottom: 0;
+}
+
+.frame-controller-illustrations .project-frame-static,
+.frame-controller-about .project-frame-static {
+  cursor: default;
+  pointer-events: none;
+  transform: none;
+}
+
+.frame-controller-illustrations .project-frame-static:hover,
+.frame-controller-illustrations .project-frame-static:active,
+.frame-controller-about .project-frame-static:hover,
+.frame-controller-about .project-frame-static:active {
+  transform: none;
+}
+
+.frame-controller-illustrations .project-frame-static::before,
+.frame-controller-about .project-frame-static::before {
+  animation: none;
+}
+
+.frame-controller-illustrations .project-frame-static-about,
+.frame-controller-about .project-frame-static-about {
+  overflow: visible;
+}
+
+.frame-controller-illustrations .project-frame-static-about .project-frame-content-image img,
+.frame-controller-about .project-frame-static-about .project-frame-content-image img {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+
+.frame-controller-illustrations .project-frame-static-about .project-frame-content-text-button p,
+.frame-controller-about .project-frame-static-about .project-frame-content-text-button p {
+  max-width: 52ch;
+}
+
+.project-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(15, 15, 15, 0.42);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(30px);
+  z-index: 0;
+}
+
+.project-frame:hover::before {
+  animation: projectFrameHoverGlow 2.6s ease-in-out infinite;
+}
+
+.project-frame:active::before {
+  background: rgba(90, 74, 28, 0.58);
+  opacity: 1;
+}
+
+@keyframes projectFrameHoverGlow {
+  0% {
+    background: rgba(26, 20, 7, 0.34);
+    opacity: 0.72;
+  }
+  50% {
+    background: rgba(44, 34, 12, 0.5);
+    opacity: 1;
+  }
+  100% {
+    background: rgba(26, 20, 7, 0.34);
+    opacity: 0.72;
+  }
+}
+.deco-corners {
+  /* outline: 1px solid #ff0000; */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+
+.deco-corners svg{
+  position: absolute;
+  
+
+}
+
+.deco-corners-top-right {
+  top: -1px;
+  right: -2px;
+}
+.deco-corners-bottom-right-2 {
+  bottom: -2px;
+  right: -1px;
+}
+.deco-corners-bottom-right-1{
+  bottom: -1px;
+  right: -2px;
+}
+
+.deco-corners-bottom-left{
+  bottom: -1px;
+  left: -1px;
+}
+
+.project-frame-header{
+  position: relative;
+  width: 100%;
+  height: 107px;
+}
+
+.project-frame-header-waves-mask {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to top, transparent 5%, #000 75%, #000 100%);
+  mask-image: linear-gradient(to top, transparent 5%, #000 75%, #000 100%);
+}
+
+.project-frame-header-waves-blured {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 2%;
+  display: block;
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  transform: scaleX(1.2) rotate(180deg);
+  transform-origin: center center;
+}
+
+.project-frame-header-title-logo {
+  position: relative;
+  z-index: 1;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  top: 28px;
+  gap: 32px;
+  width: calc(100% - 78px);
+  padding-bottom: 0;
+  margin: 0 40px;
+}
+
+
+.project-frame-header-software{
+  position: relative;
+  height: fit-content;
+  width: fit-content;
+  margin-left: auto;
+  padding: 0;
+  gap: 12px;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+}
+
+.project-frame-header-software svg {
+  align-self: flex-start;
+  flex: 0 0 auto;
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 0;
+  top: auto !important;
+  position: static !important;
+  transform: none !important;
+}
+
+.project-frame-header-software-icon-1{
+  filter: drop-shadow(0 0 5px #8D8D8D);
+}
+.project-frame-header-software-icon-2{
+  filter: drop-shadow(0 0 5px #31A8FF);
+}
+.project-frame-header-software-icon-3{
+  filter: drop-shadow(0 0 5px #ff9d00);
+}
+.project-frame-header-software-icon-4{
+  filter: drop-shadow(0 0 5px #ff9d00);
+}
+.project-frame-header-software-icon-5{
+  filter: drop-shadow(0 0 5px #ffffff);
+}
+.project-frame-header-software-icon-6{
+  filter: drop-shadow(0 0 5px #0095ff);
+}
+.project-frame-header-software-icon-7{
+  filter: drop-shadow(0 0 5px #e39060);
+}
+.project-frame-header-software-icon-8{
+  filter: drop-shadow(0 0 5px #169eff);
+}
+.project-frame-header-software-icon-9{
+  filter: drop-shadow(0 0 5px #b0c604);
+}
+
+.project-frame-header-subtitle {
+  position: absolute;
+  bottom: 0;
+  margin: 0 40px; 
+  font-size: 15px;
+  color: #DAB67D;
+}
+
+
+.project-frame-header-line {
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 12px;
+  pointer-events: none;
+}
+
+.project-frame-header-line-curve {
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+  display: block;
+  overflow: visible;
+  position: relative;
+  left: -1px;
+}
+
+.project-frame-header-line-straight {
+  flex: 1 1 auto;
+  position: relative;
+  width: 100%;
+  left: -2px;
+  height: 12px;
+  display: block;
+  overflow: visible;
+}
+.project-frame-content{
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 20px auto 40px;
+  width: calc(100% - 80px);
+  gap: 30px;
+  height: fit-content;
+}
+
+.frame-controller-image-editing .project-frame-content,
+.frame-controller-3d-modeling .project-frame-content{
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+
+
+
+
+.frame-controller-image-editing .project-frame-content{
+  /* ensure children align from the same top baseline */
+  align-items: flex-start;
+}
+
+.frame-controller-image-editing .project-frame-content-image{
+  flex: 1 1 74%;
+  min-width: 0;
+  max-width: none;
+  display: flex;
+  align-self: flex-start;
+}
+
+.frame-controller-image-editing .project-frame-content-text-button{
+  max-width: none;
+  flex: 0 0 22%;
+  min-width: 180px;
+  align-self: flex-start;
+}
+
+.frame-controller-3d-modeling .project-frame-content{
+  flex-wrap: wrap;
+}
+
+.frame-controller-3d-modeling .project-frame-content-image,
+.frame-controller-3d-modeling .project-frame-content-text-button{
+  flex: 1 1 100%;
+  min-width: 100%;
+  max-width: none;
+}
+
+.frame-controller-3d-modeling .project-frame-content-image{
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.frame-controller-3d-modeling .project-frame-content-video-source{
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.frame-controller-3d-modeling .project-frame-content-video{
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  border-radius: 10px;
+  outline: 1px solid #8D8D8D;
+}
+
+.frame-controller-3d-modeling .project-frame-content-text-button{
+  gap: 12px;
+}
+/* ------------------------------------------------------------------------------FRAME DE TESTE-----------------------------------------------------------------------------------------*/
+
+
+.project-frame-content-image {
+  position: relative;
+  flex: 0 0 auto;
+  width: 230px;
+  max-width: 230px;
+  min-width: 0;
+  align-self: center;
+  margin: 0 auto;
+}
+.project-frame-content-image svg{
+  position: absolute;
+  top: 50%;
+  right: -12px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.project-frame-content-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 10px;
+  outline: 1px solid #8D8D8D;
+  display: block;
+
+}
+
+/* Make images with `.inner-scaled` smaller inside the same frame */
+/* removed custom inner-scaled rule (reverted to original) */
+
+.project-frame-content-text-button{
+  flex: 1 1 260px;
+  min-width: 240px;
+  max-width: 100%;
+  padding: 0;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.project-frame-content-text-button p{
+  margin: 0;
+}
+
+
+
+.project-frame-content-button {
+  align-self: flex-end;
+}
+
+.frame-controller-image-editing .project-frame-content-button {
+  align-self: center;
+}
+
+.project-page-card{
+  width: min(100%, 900px);
+  margin: 0 auto;
+  padding: 32px 36px;
+  border-radius: 16px;
+  background: rgba(15, 15, 15, 0.72);
+  outline: 2px solid #8D8D8D;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.project-page-card h1{
+  margin: 0 0 16px;
+}
+
+.project-page-card p{
+  margin: 0;
+  color: #D9D9D9;
+  max-width: 52ch;
+}
+
+.anchor-dummy{
+  margin-top: 60px;
+}
+
+.page-section.is-hidden,
+.is-hidden,
+.route-content.is-hidden{
+  display: none !important;
+}
+
+

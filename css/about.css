@@ -1,0 +1,94 @@
+body .content-container {
+  position: relative;
+  z-index: 20;
+  pointer-events: none;
+}
+
+body .frame-controller-about {
+  position: relative;
+  z-index: 21;
+  width: 70%;
+  max-width: 100%;
+  height: auto;
+  margin: 140px auto 0;
+  pointer-events: none; /* disable clicks on about frame controller */
+}
+
+@media (max-width: 1520px) {
+  body .frame-controller-about {
+    top: auto;
+    right: auto ;
+    bottom: auto ;
+    left: auto ;
+    align-self: flex-start !important;
+    margin-top: 160px !important;
+  }
+}
+
+
+.frame-controller-about .project-frame {
+  cursor: default;
+  transform: none;
+  transition: none;
+}
+
+.frame-controller-about .project-frame:hover,
+.frame-controller-about .project-frame:active {
+  transform: none;
+}
+
+.frame-controller-about .project-frame:hover::before {
+  animation: none;
+}
+
+.frame-controller-about .project-frame-link,
+.frame-controller-about .project-frame,
+.frame-controller-about .project-frame * {
+  pointer-events: none; /* ensure no clickable interaction inside */
+  cursor: default;
+}
+
+.project-frame-content {
+  margin-top: 24px;
+}
+.frame-controller-about .project-frame-content-image {
+  position: relative;
+  flex: 0 0 320px;
+  width: 320px;
+  max-width: 320px;
+  min-width: 320px;
+  align-self: flex-start;
+}
+
+.frame-controller-about .project-frame-content-image svg {
+  position: absolute;
+  top: 50%;
+  right: -12px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.frame-controller-about .project-frame-content-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 10px;
+  outline: 1px solid #8D8D8D;
+  display: block;
+}
+
+.project-frame-content-text-button p{
+  font-size: 26px;
+  line-height: 1.35;
+}
+
+@media (max-width: 1637px) {
+  .project-frame-content-text-button p {
+    font-size: clamp(16px, 1.6vw, 22px);
+  }
+}
+
+.project-frame-header-title-logo {
+  gap: 5px;
+}

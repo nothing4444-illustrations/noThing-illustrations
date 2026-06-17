@@ -1,0 +1,115 @@
+.zoom-window {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    margin-top: 100px;
+    justify-content: center;
+    /* background: rgba(0, 0, 0, 0.85); */
+    padding: 30px;
+    overflow: auto;
+}
+
+.zoom-window.active {
+    display: flex;
+}
+
+.zoom-window-content {
+    /* width: min(1100px, 100%); */
+    width: auto;
+    height: auto;
+    /* max-width: 1100px; */
+    max-height: auto;
+    grid-template-columns: minmax(320px, 1fr) minmax(260px, 0.8fr);
+    gap: 24px;
+    background: rgba(15, 15, 15, 0.98);
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 0 120px rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.zoom-window-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+
+}
+
+.zoom-window-image ,.zoom-window-canvas {
+    width: auto;
+    height: 60vh;
+    
+    /* object-fit: cover; */
+    border-radius: 10px;
+}
+
+.zoom-window-text {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: #ffffff;
+}
+
+.zoom-window-title {
+    margin: 0;
+    font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.zoom-window-description {
+    margin: 0;
+    line-height: 1.65;
+    font-size: 1rem;
+    opacity: 0.92;
+    white-space: pre-wrap;
+    color: #a7a7a7;
+}
+
+.zoom-window-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    font-size: 1.75rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.zoom-window-close:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.16);
+}
+
+@media (max-width: 1250px) {
+    .zoom-window-image, .zoom-window-canvas {
+       max-width: 100%;
+        height: auto;
+        max-height: 60vh;
+  
+    }
+
+}
+
+@media (max-width: 600px) {
+    .zoom-window-image, .zoom-window-canvas {
+        max-width: 100%;
+        height: auto;
+    }
+
+    
+}
+

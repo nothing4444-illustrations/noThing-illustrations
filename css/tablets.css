@@ -1,0 +1,584 @@
+/* Styles for tablet / narrower screens (<= 1350px) */
+@media (max-width: 1350px) {
+  /* Hide desktop nav in header to simplify layout */
+  .nav-container {
+    position: relative;
+    pointer-events: none;
+  }
+
+  .nav-container nav {
+    display: none !important;
+  }
+
+  header {
+    z-index: 99999 !important;
+  }
+
+  .mobile-nav-toggle {
+    display: inline-flex;
+    position: absolute;
+    background: transparent;
+    right: 40px;
+    top: 48px;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0;
+    cursor: pointer;
+    z-index: 12;
+    pointer-events: auto;
+  }
+
+
+
+  .mobile-nav-toggle span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    border-radius: 999px;
+    background: #fff;
+  }
+
+  .mobile-nav-panel {
+    position: absolute;
+    top: 90px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: auto;
+    padding: 16px 0px;
+    border-radius: 12px;
+    z-index: -1;
+    pointer-events: auto;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 280ms ease, opacity 180ms ease, transform 280ms ease;
+    will-change: max-height, opacity, transform;
+  }
+  
+
+  .mobile-nav-panel.is-open {
+    max-height: 180px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .mobile-nav-panel.is-open a{
+    text-shadow: 0 0 10px #ffffff;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    pointer-events: auto;
+  }
+  .mobile-nav-panel .nav-link h2 {
+    margin: 0;
+    font-size: clamp(16px, 4vw, 20px);
+    
+  }
+
+  .mobile-nav-panel .nav-link.is-active h2 {
+    color: #dab67d;
+    text-shadow: 0 0 10px #dab67d;
+  }
+  header nav {
+    display: none !important;
+  }
+
+  /* Hide the animated slider only; keep Vector2Header visible (it sits in front of the "personal portfolio" text) */
+  header .slider {
+    display: none !important;
+  }
+
+  /* Insert a simpler horizontal SVG via pseudo-element to replace the decorative vector.
+     This keeps markup untouched and only applies on <=1350px. */
+  /* Ensure header is a positioned container so absolute pseudo-element fills it */
+  header { position: fixed; }
+
+  .frame-container{
+    padding: 0 50px;
+  }
+
+  header::before{
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    /* keep visual vertical offset unchanged without altering layout flow */
+    /* make it span the full viewport width and center it */
+    width: 100vw;
+    left: 50%;
+    transform: translate(-50%, 61px);
+    height: 18px; /* visual height */
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center top;
+    /* force SVG to stretch to full width of the pseudo-element */
+    background-size: 100% 100%;
+    /* white horizontal lines with alpha gradient */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1320 1'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='0'><stop offset='0%' stop-color='white' stop-opacity='0'/><stop offset='20%' stop-color='white' stop-opacity='1'/><stop offset='80%' stop-color='white' stop-opacity='1'/><stop offset='100%' stop-color='white' stop-opacity='0'/></linearGradient></defs><rect x='0' y='0' width='100%' height='2' fill='url(%23g)'/></svg>");
+    pointer-events: none;
+  }
+
+  /* Ensure the replacement does not affect layout flow or interactivity */
+  header .waves-blured { display: block; }
+  /* Allow header software icons to wrap to next line when they overflow the project frame */
+  
+   /* Make illustrations frame project content behave like 3d-modeling frame */
+  .frame-controller-illustrations .project-frame-content{
+    flex-wrap: wrap;
+  }
+
+  .frame-controller-illustrations .project-frame-content-image,
+  .frame-controller-illustrations .project-frame-content-text-button{
+    flex: 1 1 100%;
+    min-width: 100%;
+    max-width: none;
+  }
+
+  .frame-controller-illustrations .project-frame-content-image{
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .frame-controller-illustrations .project-frame-content-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 10px;
+    outline: 1px solid #8D8D8D;
+    display: block;
+  }
+  .frame-controller-illustrations .project-frame-header-software svg,
+  .frame-controller-logos .project-frame-header-software svg,
+  .frame-controller-image-editing .project-frame-header-software svg,
+  .frame-controller-3d-modeling .project-frame-header-software svg {
+    width: 34px;
+  }
+
+
+  .frame-controller-illustrations .project-frame-content-text-button{
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .frame-controller-3d-modeling .project-frame-content-image canvas{
+    height: 280px !important;
+
+  }
+  .frame-controller-3d-modeling .project-frame-content-image {
+    height: 280px !important;
+
+  }
+
+  .frame-controller-logos .project-frame-content-image,
+  .frame-controller-image-editing .project-frame-content-image,
+  .frame-controller-3d-modeling .project-frame-content-image {
+    width: 100%;
+    max-width: none;
+    flex: 1 1 100%;
+    min-width: 0;
+    max-height: 280px;
+  }
+
+  .frame-controller-logos .project-frame-content-image,
+  .frame-controller-image-editing .project-frame-content-image {
+    height: auto;
+  }
+
+  .frame-controller-logos .project-frame-content-image,
+  .frame-controller-logos .project-frame-content-image-frame,
+  .frame-controller-image-editing .project-frame-content-image,
+  .frame-controller-image-editing .project-frame-content-image-frame,
+  .frame-controller-3d-modeling .project-frame-content-image,
+  .frame-controller-3d-modeling .project-frame-content-video {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .frame-controller-logos .project-frame-content-image-frame,
+  .frame-controller-image-editing .project-frame-content-image-frame,
+  .frame-controller-3d-modeling .project-frame-content-image,
+  .frame-controller-3d-modeling .project-frame-content-video {
+    width: 100%;
+    max-width: none;
+  }
+
+  .frame-controller-logos .project-frame-content-image-frame {
+    height: 190px;
+  }
+
+  .frame-controller-logos .project-frame-content-image img,
+  .frame-controller-image-editing .project-frame-content-image img,
+  .frame-controller-3d-modeling .project-frame-content-image img,
+  .frame-controller-image-editing .project-frame-content-video,
+  .frame-controller-3d-modeling .project-frame-content-video {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .frame-controller-about {
+    min-width: 562px;
+
+
+  }
+
+  .frame-controller-about .project-frame-content-image {
+    position: relative;
+    width: 30% !important;
+    max-width: 40% !important;
+    min-width: 167px;
+    align-self: flex-start;
+    max-height: 400px;
+    margin: 0;
+  }
+
+  .frame-controller-about .project-frame-content-text-button {
+    
+    width: 100% !important;
+    min-width: 0;
+  }
+
+  
+
+
+  
+
+  .frame-controller-about .project-frame-content-image img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .frame-controller-about .project-frame-header {
+    height: 150px;
+  }
+
+  
+  
+  
+  .frame-controller-about .project-frame-header-software svg,
+  .frame-controller-about .project-frame-header-software img{
+    flex: 0 0 auto;
+  }
+
+  .frame-controller-about .project-frame-header-subtitle {
+    top: 88px;
+  }
+
+  .frame-controller-about .project-frame-header-line {
+    top: 88px;
+
+  }
+
+
+
+  .frame-controller-about .project-frame-header-title-logo > .project-frame-header-software {
+    justify-content: flex-start;
+    padding: 0;
+    width: 100%;
+    top: 90px;
+    position: absolute;
+    right: auto;
+    transform-origin: left;
+    align-self: flex-start;
+    flex: 0;  
+    max-width: none;
+    margin: 0 !important;
+    }
+
+  /* .frame-controller-about .project-frame-header-title-logo {
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 0px;
+    padding: 0px 10px 0 10px;
+    top: 0;
+    gap: 0px;
+  } */
+
+  /* .frame-controller-about .project-frame-header-title-logo img{
+
+    width: 55px !important;
+    height: auto !important;
+  } */
+  
+  /* .frame-controller-about .project-frame-header-title-logo img{
+
+    transform: scale(clamp(0.72, calc(100vw / 1350px), 1));
+    
+
+    
+  } */
+
+      .frame-controller-logos .project-frame-content-image img{
+    width: 60%;
+      }
+
+  
+  .frame-controller-about .project-frame-content {
+    
+    margin: 20px 0px 40px 0px;
+    align-items: flex-start;
+    
+  }
+
+
+
+
+  .frame-controller-about .project-frame-header-software svg {
+    width: 34px;
+    height: auto;
+    flex-shrink: 0;
+    transform: scale(calc(1 / clamp(0.72, calc(100vw / 1350px), 1)));
+    transform-origin: center center;
+  }
+
+  .frame-controller-about .project-frame-content-text-button p {
+    font-size: clamp(12px, 1.6vw, 22px);
+  }
+
+
+  /* .frame-controller-about .project-frame-header-title {
+    white-space: nowrap;
+    font-size: clamp(14px, 3vw, 34px);
+    line-height: 1.05;
+  } */
+
+  /* .frame-controller-about .project-frame-header-subtitle {
+    margin: 0 20px;
+    font-size: clamp(11px, 1.6vw, 15px);
+    white-space: nowrap;
+  } */
+
+  /* .frame-controller-about .project-frame-header-line {
+    bottom: 4px;
+  } */
+
+  .frame-controller-logos .project-frame-content-image {
+    width: 100%;
+    max-width: none;
+  }
+
+
+  .illustrations {
+    border-radius: 5px;
+    height:40vh;
+}
+
+  .arrow-container{
+    /* outline: 1px solid red; */
+    height: 30px;
+  }
+
+  .arrow-container svg{
+    width: 30px;
+    height: 30px;
+  }
+
+  .title-text {
+    font-size: 24px; 
+  }
+
+  .gallery-row{
+    gap: 8px;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  .frame-controller-illustrations{
+    width: 85%;
+    max-width: 678px;
+  }
+
+  .frame-controller-logos{
+    width: 55%;
+    max-width: 355px;
+  }
+
+  .frame-controller-image-editing{
+    width: 85%;
+    max-width: 678px;
+  }
+
+  .frame-controller-3d-modeling{
+    width: 85%;
+    max-width: 678px;
+  }
+
+  /* Make image-editing frame project content behave like 3d-modeling frame at this threshold */
+  .frame-controller-image-editing .project-frame-content{
+    flex-wrap: wrap;
+  }
+
+  .frame-controller-image-editing .project-frame-content-image,
+  .frame-controller-image-editing .project-frame-content-text-button{
+    flex: 1 1 100%;
+    min-width: 100%;
+    max-width: none;
+  }
+
+  .frame-controller-image-editing .project-frame-content-image{
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .frame-controller-image-editing .project-frame-content-image img,
+  .frame-controller-image-editing .project-frame-content-video{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 10px;
+    outline: 1px solid #8D8D8D;
+  }
+
+  .frame-controller-image-editing .project-frame-content-text-button{
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+@media (max-width: 1000px) {
+  .footer-content > nav.footer-content-nav {
+    display: none !important;
+  }
+  .footer-content > :nth-child(2) {
+    display: none !important;
+  }
+
+  .frame-controller-contact .project-frame-content-image {
+    display: none;
+
+  }
+
+  .frame-controller-contact .project-frame-content {
+    align-items: center;
+    flex-direction: column;
+
+  }
+  .frame-controller-contact .project-frame-header-subtitle {
+    top: 88px;
+  }
+
+  .frame-controller-contact .project-frame-content {
+    margin: 40px 0 ;
+    width: calc(100% - 40px);
+    
+  }
+  .illustration-card {
+    height:280px;
+    width: calc(65% - 60px);
+    max-width: 181px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .illustrations {
+    position: relative;
+    
+  }
+
+  .illustrations[alt="Cartethiya - Wuthering Waves"] {
+    left: 100px;
+  }
+
+  .illustrations[alt="Eminence in Shadow - Alpha"] {
+    left: 0px;
+  }
+
+  .illustrations[alt="Son Goku - Dragon Ball Super"] {
+    left: 30px;
+  }
+
+   .illustrations[alt="OC - Lilith"] {
+    left: 60px;
+  }
+
+
+/* Disable hover scaling/animation on tablets */
+.project-frame:hover {
+  transform: none !important;
+}
+.project-frame:hover::before {
+  animation: none !important;
+  background: rgba(15, 15, 15, 0.42) !important;
+}
+.project-frame:active {
+  transform: none !important;
+}
+.project-frame:active::before {
+  background: rgba(15, 15, 15, 0.42) !important;
+  opacity: 1 !important;
+}
+
+
+
+}
+
