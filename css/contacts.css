@@ -321,9 +321,10 @@ body .frame-controller-contact {
 
 .project-frame-content-text-button p,
 .project-frame-content-text-button a p{
-  font-family: 'IBM Plex Mono', monospace !important; /* originally used by h2 */
+  line-height: 1.1;
+  font-family: 'satoshi', monospace !important; /* originally used by h2 */
   font-weight: 400 !important;
-  font-size: 11px;
+  font-size: 12px;
   
   color: #8D8D8D;
 }
